@@ -7,10 +7,6 @@ public class EnemyKillZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.GetComponent<Bullet>())
-        {
-            Destroy(collision.gameObject);
-
-        }
+        Destroy(collision.gameObject);
     }
 }

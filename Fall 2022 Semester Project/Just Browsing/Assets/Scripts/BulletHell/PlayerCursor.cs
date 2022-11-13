@@ -10,12 +10,13 @@ public class PlayerCursor : MonoBehaviour
     [Space(20)]
     public int speed;
     public float movement;
-    private GameObject manager;
+    public GameObject burst;
+    private BHellManager manager;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        manager = GameObject.FindGameObjectWithTag("BHController");
+        manager = GameObject.FindGameObjectWithTag("BHController").GetComponent<BHellManager>();
     }
 
     private void Update()
@@ -27,21 +28,23 @@ public class PlayerCursor : MonoBehaviour
             Shoot();
         }
 
-        if(movement != 0 || Input.GetKeyDown(KeyCode.Space))
-        {
-            manager.GetComponent<BHellManager>().seenStart();
-        }
+        //if(movement != 0 || Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    manager.GetComponent<BHellManager>().seenStart();
+        //}
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2 (rb.velocity.x, movement * speed);
+        rb.velocity = new Vector2 (rb.velocity.x, -movement * speed);
 
     }
 
     public void takeDamage()
     {
+        manager.playerHit();
         manager.GetComponent<BHellManager>().TakeDamage();
+        Instantiate(burst, transform.position, Quaternion.identity);
     }
 
     void Shoot()
