@@ -13,6 +13,7 @@ public class EnemyBulletHell : MonoBehaviour
     public GameObject Bullet;
     public GameObject burst;
     public Transform shootPoint;
+    public Transform shootPoint2;
 
     private void Awake()
     {
@@ -47,6 +48,8 @@ public class EnemyBulletHell : MonoBehaviour
         health--;
         if(health == 0)
         {
+            GameObject.FindGameObjectWithTag("BHController").GetComponent<BHellManager>().enemyDeath();
+
             Death();
         }
     }
@@ -56,10 +59,17 @@ public class EnemyBulletHell : MonoBehaviour
         GameObject go = Instantiate(Bullet, shootPoint.position, Quaternion.identity);
         go.GetComponent<Bullet>().bulletDirection("left");
         go.GetComponent<SpriteRenderer>().color = Color.red;
+        if(shootPoint2 != null)
+        {
+            GameObject go2 = Instantiate(Bullet, shootPoint2.position, Quaternion.identity);
+            go2.GetComponent<Bullet>().bulletDirection("left");
+            go2.GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 
     void Death()
     {
+        
         Instantiate(burst, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

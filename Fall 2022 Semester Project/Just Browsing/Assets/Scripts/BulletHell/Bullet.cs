@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class Bullet : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D rb;
     private int direction; //1 = right / -1 = left
     public bool ifEnemy = false;
+    public GameObject ps;
 
     private void Start()
     {
@@ -19,10 +21,11 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && !ifEnemy)
         {
+            Instantiate(ps, transform.position, Quaternion.identity);
             collision.GetComponent<EnemyBulletHell>().Damage();
             Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "Player")
+        else if (collision.gameObject.tag == "Player" && ifEnemy)
         {
             collision.GetComponent<PlayerCursor>().takeDamage();
             Destroy(gameObject);

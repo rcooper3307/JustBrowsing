@@ -8,9 +8,9 @@ public class ScannerBar : MonoBehaviour
 {
     public Slider slider;
     public int goal;
-    public float fillSpeed = 0.85f;
-    public bool runStart;
+    public float fillSpeed;
     public TextMeshProUGUI percent;
+    public bool hasFailed = false;
     private void Awake()
     {
         slider = gameObject.GetComponent<Slider>();
@@ -26,7 +26,7 @@ public class ScannerBar : MonoBehaviour
     public void IntProgress(float progressGoal)
     {
         BHellManager BHC = GameObject.FindGameObjectWithTag("BHController").GetComponent<BHellManager>();
-        if (BHC.started)
+        if (BHC.started && !hasFailed)
         {
             slider.maxValue = progressGoal;
 
@@ -37,12 +37,22 @@ public class ScannerBar : MonoBehaviour
             else
             {
                 slider.value = goal;
+                BHC.scanCompleted();
             }
+        }
+        else if(hasFailed)
+        {
+            slider.value = slider.value;
         }
         else
         {
             slider.value = 0;
         }
 
+    }
+
+    public void failed()
+    {
+        hasFailed = true;
     }
 }

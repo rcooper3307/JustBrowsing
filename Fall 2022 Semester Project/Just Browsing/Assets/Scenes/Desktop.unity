@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 73809861}
   - component: {fileID: 73809863}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Browser Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 1094665138}
   - component: {fileID: 1094665140}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Email Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 1923467366}
   - component: {fileID: 1923467368}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Video Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
