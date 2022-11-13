@@ -6641,7 +6641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1655220264}
   goal: 100
-  fillSpeed: 2
+  fillSpeed: 1.6
   percent: {fileID: 1691634052}
   hasFailed: 0
 --- !u!1 &1691634050
