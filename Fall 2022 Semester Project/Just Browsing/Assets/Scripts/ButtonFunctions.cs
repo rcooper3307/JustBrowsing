@@ -25,4 +25,9 @@ public class ButtonFunctions : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+
+    public void Email()
+    {
+        SceneManager.LoadScene("Email");
+    }
 }
