@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mal-WareBulletHell.unity
     guid: fb2e4710fa4bdf348968cb707b8e202b
+  - enabled: 1
+    path: Assets/Scenes/Email.unity
+    guid: 93bb82a2380b17c4c9f4a96bed58728d
   m_configObjects: {}
