@@ -6,18 +6,20 @@ using UnityEngine.UI;
 
 public class BHellUI : MonoBehaviour
 {
-    public GameObject hpbar;
     public int hp;
-    public Transform healthContainer;
+    public TextMeshProUGUI hpText;
     public GameObject resultsGO;
     public TextMeshProUGUI resultsText;
     public GameObject introText;
-    private int scanWin;
+
+    private void Awake()
+    {
+        resultsText.text = "";
+        resultsGO.SetActive(false);
+    }
     private void Update()
     {
         trackHealth();
-        scanResult();
-
     }
 
     public void trackHealth()
@@ -33,37 +35,19 @@ public class BHellUI : MonoBehaviour
 
         if (playerHP != hp)
         {
-            foreach(Transform child in healthContainer)
-            {
-                Destroy(child.gameObject);
-            }
 
             hp = playerHP;
+            hpText.text = "HEALTH: " + hp.ToString();
 
-            for (int i = 0; i < hp; i++)
-            {
-                Instantiate(hpbar, healthContainer);
-            }
         }
 
         if(hp == 0)
         {
-
-            gameOver();
+            hpText.text = "Dead End";
         }
     }
 
-    public void gameOver()
-    {
-        foreach (Transform child in healthContainer)
-        {
-            Destroy(child.gameObject);
-        }
-
-        scanWin = -1;
-    }
-
-    public void scanResult()
+    public void scanResult(int scanWin)
     {
         switch(scanWin)
         {
@@ -79,6 +63,7 @@ public class BHellUI : MonoBehaviour
                 resultsText.text = "VIRUS SCAN FAILED";
                 resultsGO.SetActive(true);
                 break;
+
         }
     }
 }
