@@ -367,7 +367,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &53582871
 Canvas:
   m_ObjectHideFlags: 0
@@ -377,7 +377,7 @@ Canvas:
   m_GameObject: {fileID: 53582866}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 1090512688}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -397,8 +397,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53582866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.01633987, y: 0.01633987, z: 0.01633987}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1272834127}
@@ -407,9 +407,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -4.434602}
+  m_SizeDelta: {x: 1088, y: 69.1991}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &73809859
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,13 +531,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1699909427}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 40865517}
+        m_TargetAssemblyTypeName: popupADSpawner, Assembly-CSharp
+        m_MethodName: spawnAds
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -658,7 +658,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.55, y: -24.734993}
+  m_AnchoredPosition: {x: -0.00000032782555, y: 0.00000012665987}
   m_SizeDelta: {x: 258.68, y: 106.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &202175363
@@ -1141,7 +1141,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.5293254, g: 0.5628783, b: 0.6132076, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1495,11 +1495,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1387923480498535850, guid: d5eb9b8b2d3600544b7d5b177af94bcd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0091133
+      value: -0.00001906138
       objectReference: {fileID: 0}
     - target: {fileID: 1387923480498535850, guid: d5eb9b8b2d3600544b7d5b177af94bcd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -270.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1387923480498535850, guid: d5eb9b8b2d3600544b7d5b177af94bcd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c72cab0e81316449a6f9ed6a512e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  score: 900
 --- !u!4 &1678072113
 Transform:
   m_ObjectHideFlags: 0
@@ -1752,7 +1752,7 @@ GameObject:
   - component: {fileID: 1699909431}
   m_Layer: 5
   m_Name: BarBase
-  m_TagString: Untagged
+  m_TagString: NeedsSystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1829,6 +1829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745808c5f9503274d8a68df772d6a4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreKeeper: {fileID: 1678072112}
   goal: 100
   rewardPoints: 250
   activate: 0
@@ -1863,12 +1864,16 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   VideoSpeed: 2
   VideoBar: {fileID: 1825013627}
+  VpointsDeduct: 50
   GameSpeed: 1.6
   GameBar: {fileID: 845377977992766219}
+  GpointsDeduct: 50
   EmailSpeed: 3.5
   EmailBar: {fileID: 7668622304342898252}
+  EpointsDeduct: 25
   PasswordSpeed: 1.4
   PasswordBar: {fileID: 1935968172}
+  PpointsDeduct: 80
   passwordReseter: {fileID: 5790898054632738251, guid: 34154304c0f1d0d4f95231a12c6ac92a, type: 3}
   passwordNotice: {fileID: 202175361}
   noticePassword: 0
@@ -2559,7 +2564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2050677020
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2635,7 +2640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2106925619
 RectTransform:
   m_ObjectHideFlags: 0

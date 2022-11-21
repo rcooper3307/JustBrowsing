@@ -115,6 +115,7 @@ public class PasswordChanger : MonoBehaviour
         if(totalTrue)
         {
             //give points
+            PersistentData.Instance.Pass = true;
             ns.noticePassword = true;
             ns.RefreshNeedsBar(ns.PasswordBar);
             Destroy(gameObject);

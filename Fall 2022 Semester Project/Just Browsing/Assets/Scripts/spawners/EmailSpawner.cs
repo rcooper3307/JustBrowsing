@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class EmailSpawner : MonoBehaviour
@@ -19,6 +20,7 @@ public class EmailSpawner : MonoBehaviour
     private void Awake()
     {
         emailAmount = GameObject.Find("EmailAmountText").GetComponent<TextMeshProUGUI>();
+        spawnSpamEmails(3);
     }
 
     private void Update()
@@ -91,6 +93,7 @@ public class EmailSpawner : MonoBehaviour
             //award points
             //reset bar to full
             //delete all emails before player leaves scene
+            SceneManager.LoadScene("Desktop");
         }
     }
 

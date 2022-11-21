@@ -9,6 +9,7 @@ TagManager:
   - BHController
   - Taskbar
   - Time
+  - NeedsSystem
   layers:
   - Default
   - TransparentFX
