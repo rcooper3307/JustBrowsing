@@ -10,6 +10,7 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 [Uu]ser[Ss]ettings/
+[Uu]serSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -61,3 +62,6 @@ crashlytics-build.properties
 
 .vscode
 
+Fall 2022 Semester Project/Just Browsing/UserSettings/Layouts/default-2021.dwlt
+Fall 2022 Semester Project/Just Browsing/UserSettings/Layouts/default-2021.dwlt
+Fall 2022 Semester Project/Just Browsing/UserSettings/Layouts/default-2021.dwlt
