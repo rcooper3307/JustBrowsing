@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Email.unity
     guid: 93bb82a2380b17c4c9f4a96bed58728d
+  - enabled: 1
+    path: Assets/Scenes/Browser.unity
+    guid: b7312a0684af545b39625e1003a7c715
+  - enabled: 1
+    path: Assets/Scenes/GameB.unity
+    guid: e1e131241cea0764ea698053f2f6b5aa
   m_configObjects: {}

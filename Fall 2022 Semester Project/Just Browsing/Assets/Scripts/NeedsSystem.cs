@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class NeedsSystem : MonoBehaviour
 {
-    public ScoreKeeper scoreKeeper;
+    public GameObject notice;
     public int goal;
     public int rewardPoints;
     public bool activate;
@@ -36,7 +36,26 @@ public class NeedsSystem : MonoBehaviour
     {
         noticePass(false);
         activateBarStatus(true);
+        if (PersistentData.Instance.firstRound == false)
+        {
+            notice.SetActive(true);
+            PlayerPrefs.SetFloat("VideoBar", 100);
+            PlayerPrefs.SetFloat("GameBar", 100);
+            PlayerPrefs.SetFloat("EmailBar", 100);
+            PlayerPrefs.SetFloat("PassBar", 100);
+            PersistentData.Instance.firstRound = true;
+            StartCoroutine(waitNotice());
+        }
         setBarGoal(goal);
+
+    }
+
+    private void Update()
+    {
+        PlayerPrefs.SetFloat("VideoBar", VideoBar.value);
+        PlayerPrefs.SetFloat("GameBar", GameBar.value);
+        PlayerPrefs.SetFloat("EmailBar", EmailBar.value);
+        PlayerPrefs.SetFloat("PassBar", PasswordBar.value);
     }
 
     private void FixedUpdate()
@@ -53,8 +72,8 @@ public class NeedsSystem : MonoBehaviour
         
         if(PasswordBar.value != 0)
             noticePass(false);
-
     }
+
 
     public void ProgressNeedsBar(Slider s, float speed, int deduct, int boolPOS)
     {
@@ -70,9 +89,9 @@ public class NeedsSystem : MonoBehaviour
             {
                 if (!runningQ[boolPOS])
                 {
-                    int i = PersistentData.Instance.GetScore();
-                    i -= deduct;
-                    PersistentData.Instance.SetScore(i);
+                    //int i = PersistentData.Instance.GetScore();
+                    //i -= deduct;
+                    PersistentData.Instance.updateScore(-deduct);
 
 
                     runningQ[boolPOS] = true;
@@ -110,29 +129,29 @@ public class NeedsSystem : MonoBehaviour
         int i = (int)Mathf.Round(s.value);
         if (i >= 65 && i < 80) //high points, close bar full, makes player check often
         {
-            reward = rewardPoints * (i / 100);
+            reward = rewardPoints;
         }
         else if(i >= 30 && i < 65)//mid points
         {
-            reward = rewardPoints * (i / 100);
+            reward = rewardPoints /  3;
         }
         else if(i >= 10 && i < 30)
         {
-            reward = rewardPoints * (i / 100);
+            reward = rewardPoints / 4;
         }
         else
         {
-            reward = rewardPoints * (i / 100);
+            reward = rewardPoints / 5;
         }
 
         s.value = s.maxValue;
         Debug.Log(reward);
 
-        int j = PersistentData.Instance.GetScore();
-        j += reward;
+        //int j = PersistentData.Instance.GetScore();
+        //j += reward;
 
 
-        PersistentData.Instance.SetScore(j);
+        PersistentData.Instance.updateScore(reward);
     }
 
     public void activateBarStatus(bool b)
@@ -143,13 +162,18 @@ public class NeedsSystem : MonoBehaviour
     public void setBarGoal(int goal)
     {
         VideoBar.maxValue = goal;
-        VideoBar.value = goal;
+        //VideoBar.value = goal;
         GameBar.maxValue = goal;
-        GameBar.value = goal; // 4;
+        //GameBar.value = goal;
         EmailBar.maxValue = goal;
-        EmailBar.value = goal;
+        //EmailBar.value = goal;
         PasswordBar.maxValue = goal;
-        PasswordBar.value = goal / 6;
+        //PasswordBar.value = goal;
+
+        VideoBar.value = PlayerPrefs.GetFloat("VideoBar");
+        GameBar.value = PlayerPrefs.GetFloat("GameBar");
+        EmailBar.value = PlayerPrefs.GetFloat("EmailBar");
+        PasswordBar.value = PlayerPrefs.GetFloat("PassBar");
     }
 
     public void spawnPasswordReseter()
@@ -178,4 +202,9 @@ public class NeedsSystem : MonoBehaviour
         runningQ[boolPOS] = false;
     }
 
+    IEnumerator waitNotice()
+    {
+        yield return new WaitForSecondsRealtime(10);
+        notice.SetActive(false);
+    }
 }

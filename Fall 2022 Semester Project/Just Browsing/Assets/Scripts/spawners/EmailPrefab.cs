@@ -24,7 +24,7 @@ public class EmailPrefab : MonoBehaviour
         }
         else //is not spam aka grandma's emails
         {
-            //deduct from points
+            PersistentData.Instance.updateScore(-10);
             Destroy(gameObject);
 
         }

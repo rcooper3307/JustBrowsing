@@ -6445,18 +6445,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Movement:
+  m_text: 'MALWARE DETECTED!
+
+    Movement:
 
     A or LEFTArrow
 
     D or RIGHTArrow
 
 
-    Shoot: Spacebar
+    Shoot:
+    Spacebar
 
 
-    Survive
-    until scan is complete
+    Survive until scan is complete
 
     Shoot to Start'
   m_isRightToLeft: 0

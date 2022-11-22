@@ -30,4 +30,14 @@ public class ButtonFunctions : MonoBehaviour
     {
         SceneManager.LoadScene("Email");
     }
+
+    public void Video()
+    {
+        SceneManager.LoadScene("Browser");
+    }
+
+    public void Game()
+    {
+        SceneManager.LoadScene("GameB");
+    }
 }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PersistentData : MonoBehaviour
@@ -14,6 +16,8 @@ public class PersistentData : MonoBehaviour
     public bool Email = false;
     public bool Pass = false;
     public static PersistentData Instance;
+
+    public bool firstRound = false;
 
     private void Awake()
     {
@@ -34,11 +38,13 @@ public class PersistentData : MonoBehaviour
         if(NS != null)
         {
             refreshSlider();
+
         }
         else
         {
             NS = GameObject.FindGameObjectWithTag("NeedsSystem").GetComponent<NeedsSystem>();
         }
+
     }
 
     // Start is called before the first frame update
@@ -54,6 +60,10 @@ public class PersistentData : MonoBehaviour
         playerName = s;
     }
 
+    public void updateScore(int s)
+    {
+        playerScore += s;
+    }
     public void SetScore(int s)
     {
         playerScore = s;
@@ -76,6 +86,7 @@ public class PersistentData : MonoBehaviour
             NS.RefreshNeedsBar(NS.VideoBar);
             Video = false;
         }
+
 
         if (Game == true)
         {

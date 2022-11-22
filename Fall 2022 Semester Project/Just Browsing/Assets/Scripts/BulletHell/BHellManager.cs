@@ -21,6 +21,7 @@ public class BHellManager : MonoBehaviour
     public UnityEvent gameOver;
     public UnityEvent gameWin;
 
+    private int result;
     private void Update()
     {
         startingCheck();
@@ -42,18 +43,19 @@ public class BHellManager : MonoBehaviour
         }
     }
 
-    public void resultStatus(string result)
-    {
-        switch(result)
-        {
-            case "win":
-                //give points n return to desktop
-                break;
-            case "lost":
-                //apply virus effect to computer
-                break;
-        }
-    }
+    //public void resultStatus(string result)
+    //{
+    //    switch(result)
+    //    {
+    //        case "win":
+    //            //give points n return to desktop
+
+    //            break;
+    //        case "lost":
+    //            //apply virus effect to computer
+    //            break;
+    //    }
+    //}
 
     public void startingCheck()
     {
@@ -77,7 +79,21 @@ public class BHellManager : MonoBehaviour
 
     public void Return()
     {
-        SceneManager.LoadScene("Desktop");
+        if(result == 1)
+        {
+            //int i = PersistentData.Instance.GetScore();
+            //int j = i + 250;
+            PersistentData.Instance.updateScore(250);
+
+            SceneManager.LoadScene("Desktop");
+        }
+        else if(result == 2)
+        {
+            //int i = PersistentData.Instance.GetScore();
+            //int j = i - 250;
+            PersistentData.Instance.updateScore(-250);
+            //end game
+        }
     }
 
     public void enemyDeath()

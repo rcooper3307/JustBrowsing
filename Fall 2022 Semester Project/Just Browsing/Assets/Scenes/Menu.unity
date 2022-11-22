@@ -2107,6 +2107,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScore: 0
   playerName: 
+  NS: {fileID: 0}
+  Video: 0
+  VValue: 0
+  Game: 0
+  GValue: 0
+  Email: 0
+  EValue: 0
+  Pass: 0
+  PValue: 0
+  EmailBacklog: 0
+  fs:
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!4 &1891101333
 Transform:
   m_ObjectHideFlags: 0
