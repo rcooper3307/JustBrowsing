@@ -15,8 +15,8 @@ public class popupADSpawner : MonoBehaviour
         {
             int posX = Random.Range(-4, 4);
             int posY = Random.Range(-2, 2);
-
-            Vector2 pos = new Vector2(posX, posY);
+            int posz = 10;
+            Vector3 pos = new Vector3(posX, posY, posz);
             GameObject go = Instantiate(ads[Random.Range(0, ads.Length)], pos, Quaternion.identity);
             go.transform.SetParent(gameObject.transform);
             go.transform.localScale = new Vector3(1, 1, 1);

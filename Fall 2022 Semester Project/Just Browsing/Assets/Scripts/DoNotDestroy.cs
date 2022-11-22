@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DoNotDestroy : MonoBehaviour
 {
     public static DoNotDestroy instance;
-
+    public Canvas canvas;
     CanvasGroup canvasGroup;
 
     private void Awake()
@@ -20,11 +20,13 @@ public class DoNotDestroy : MonoBehaviour
             Destroy(gameObject);
         canvasGroup = GetComponent<CanvasGroup>();
 
+
     }
     void Update()
     {
+        string SceneName = SceneManager.GetActiveScene().name;
         //when on the computer scenes, the taskbar is visible and interactable
-        if ((SceneManager.GetActiveScene().name == "Desktop") || (SceneManager.GetActiveScene().name == "Email"))
+        if ((SceneName == "Desktop") || (SceneName == "Email" || SceneName == "GameB") || (SceneName == "Browser"))
         {
             canvasGroup.alpha = 1;
             canvasGroup.interactable = true;

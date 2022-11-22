@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class EmailSpawner : MonoBehaviour
@@ -19,11 +20,18 @@ public class EmailSpawner : MonoBehaviour
     private void Awake()
     {
         emailAmount = GameObject.Find("EmailAmountText").GetComponent<TextMeshProUGUI>();
+        //PersistentData.Instance.EmailBacklog = 0;
+        int j = Random.Range(5, 10);
+        spawnEmailMix(j);
+    }
+
+    private void FixedUpdate()
+    {
+        ScanEmails();
     }
 
     private void Update()
     {
-        ScanEmails();
     }
 
     public EmailBase randomEmail()
@@ -40,11 +48,6 @@ public class EmailSpawner : MonoBehaviour
         }
     }
 
-    public void unloadBacklog(int emailmix, int spam)
-    {
-
-    }
-
     public void spawnEmailMix(int Amount) //should be called when the needs bar is < 100% && > 50%
     {
         for (int i = 0; i < Amount; i++)
@@ -55,6 +58,12 @@ public class EmailSpawner : MonoBehaviour
             go.transform.SetParent(gridTransform);
             go.transform.localScale = new Vector3(1, 1, 1);
         }
+
+            EmailBase ec = SPAM_emails[0];
+            GameObject ga = Instantiate(emailPrefab, gridTransform.position, Quaternion.identity);
+            ga.GetComponent<EmailPrefab>().AddEmail(ec.EmailTitle, ec.isSpam);
+            ga.transform.SetParent(gridTransform);
+            ga.transform.localScale = new Vector3(1, 1, 1);
     }
 
     public void spawnSpamEmails(int Amount)//should be called when the needs bar is < 50%
@@ -86,11 +95,21 @@ public class EmailSpawner : MonoBehaviour
             }
         }
 
-        if(clean == true)
+        if(clean == true || gridTransform.childCount == 0)
         {
             //award points
             //reset bar to full
             //delete all emails before player leaves scene
+            PersistentData.Instance.Email = true;
+            foreach (Transform child in gridTransform)
+            {
+                Destroy(child.gameObject);
+            }
+
+
+            SceneManager.LoadScene("Desktop");
+
+
         }
     }
 
