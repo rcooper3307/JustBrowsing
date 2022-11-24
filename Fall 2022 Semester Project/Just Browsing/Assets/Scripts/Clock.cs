@@ -24,7 +24,7 @@ public class Clock : MonoBehaviour
     void Update()
     {
         //changes the speed of the timer
-        timer += Time.deltaTime * 50;
+        timer += Time.deltaTime * 35;
         DisplayTime();
 
         int hour = Mathf.FloorToInt(timer / 3600.0f) % 24;
