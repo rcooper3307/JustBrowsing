@@ -21,7 +21,7 @@ public class BHellManager : MonoBehaviour
     public UnityEvent gameOver;
     public UnityEvent gameWin;
 
-    private int result;
+    public int result = 0;
     private void Update()
     {
         startingCheck();
@@ -39,6 +39,7 @@ public class BHellManager : MonoBehaviour
         if (health == 0)
         {
             Destroy(player);
+            result = 2;
             gameOver.Invoke();
         }
     }
@@ -74,6 +75,7 @@ public class BHellManager : MonoBehaviour
 
     public void scanCompleted()
     {
+        result = 1;
         gameWin.Invoke();
     }
 
@@ -92,6 +94,7 @@ public class BHellManager : MonoBehaviour
             //int i = PersistentData.Instance.GetScore();
             //int j = i - 250;
             PersistentData.Instance.updateScore(-250);
+            SceneManager.LoadScene("SampleScene");
             //end game
         }
     }

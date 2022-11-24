@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class PasswordChanger : MonoBehaviour
 {
@@ -118,6 +119,7 @@ public class PasswordChanger : MonoBehaviour
             PersistentData.Instance.Pass = true;
             ns.noticePassword = true;
             ns.RefreshNeedsBar(ns.PasswordBar);
+            PersistentData.Instance.updateScore(100);
             Destroy(gameObject);
         }
     }
