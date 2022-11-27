@@ -40,10 +40,10 @@ public class PersistentData : MonoBehaviour
             refreshSlider();
 
         }
-        else
-        {
-            NS = GameObject.FindGameObjectWithTag("NeedsSystem").GetComponent<NeedsSystem>();
-        }
+        //else
+        //{
+        //    NS = GameObject.FindGameObjectWithTag("NeedsSystem").GetComponent<NeedsSystem>();
+        //}
 
     }
 
