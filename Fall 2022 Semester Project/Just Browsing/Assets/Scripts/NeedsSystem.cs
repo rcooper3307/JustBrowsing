@@ -34,18 +34,28 @@ public class NeedsSystem : MonoBehaviour
     private bool[] runningQ = { false, false, false, false };
     private void Awake()
     {
+
+        if(PersistentData.Instance != null)
+        {
+            PersistentData.Instance.NS = gameObject.GetComponent<NeedsSystem>();
+        }
+        else
+        {
+            if (PersistentData.Instance.firstRound == false)
+            {
+                notice.SetActive(true);
+                PlayerPrefs.SetFloat("VideoBar", 100);
+                PlayerPrefs.SetFloat("GameBar", 100);
+                PlayerPrefs.SetFloat("EmailBar", 100);
+                PlayerPrefs.SetFloat("PassBar", 100);
+                PersistentData.Instance.firstRound = true;
+                StartCoroutine(waitNotice());
+            }
+        }
+
         noticePass(false);
         activateBarStatus(true);
-        if (PersistentData.Instance.firstRound == false)
-        {
-            notice.SetActive(true);
-            PlayerPrefs.SetFloat("VideoBar", 100);
-            PlayerPrefs.SetFloat("GameBar", 100);
-            PlayerPrefs.SetFloat("EmailBar", 100);
-            PlayerPrefs.SetFloat("PassBar", 100);
-            PersistentData.Instance.firstRound = true;
-            StartCoroutine(waitNotice());
-        }
+
         setBarGoal(goal);
 
     }
