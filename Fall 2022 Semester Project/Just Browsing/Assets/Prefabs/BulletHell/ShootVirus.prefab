@@ -107,9 +107,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -757628377
   m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -702125973, guid: 43bbf2a93f6fc3548b45b3239a78d6b3, type: 3}
-  m_Color: {r: 0.8537736, g: 0.8992757, b: 1, a: 0.78039217}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: ebf6185fe3b98f048bf2eb8ee9fd0247, type: 3}
+  m_Color: {r: 0.8537736, g: 0.8992757, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -136,7 +136,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.68178, y: 4.01}
+    oldSize: {x: 4.68, y: 4.01}
     newSize: {x: 3.2112205, y: 2.7600002}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -187,4 +187,3 @@ MonoBehaviour:
   burst: {fileID: 2087863279488614380, guid: d592c4d0d4e17e04cb6e921c43c9b759, type: 3}
   shootPoint: {fileID: 4223612611831164307}
   shootPoint2: {fileID: 0}
-  audio: {fileID: 0}
