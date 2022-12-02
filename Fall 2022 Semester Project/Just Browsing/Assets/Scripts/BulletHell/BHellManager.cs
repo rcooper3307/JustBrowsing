@@ -94,7 +94,7 @@ public class BHellManager : MonoBehaviour
             //int i = PersistentData.Instance.GetScore();
             //int j = i - 250;
             PersistentData.Instance.updateScore(-250);
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("HighScores");
             //end game
         }
     }
