@@ -36,6 +36,6 @@ public class Clock : MonoBehaviour
 
     public void endGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("HighScores");
     }
 }
