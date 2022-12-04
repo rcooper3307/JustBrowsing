@@ -21,7 +21,7 @@ public class PlayerCursor : MonoBehaviour
 
     private void Update()
     {
-        movement = Input.GetAxis("Horizontal"); //use A&D or arrowkeys for up and down
+        movement = -Input.GetAxis("Vertical"); //use A&D or arrowkeys for up and down
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
