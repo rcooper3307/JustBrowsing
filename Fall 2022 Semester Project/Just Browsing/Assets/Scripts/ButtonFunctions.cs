@@ -21,6 +21,11 @@ public class ButtonFunctions : MonoBehaviour
         SceneManager.LoadScene("Instructions");
     }
 
+    public void InstructEmail()
+    {
+        SceneManager.LoadScene("InstructEmail");
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
@@ -39,5 +44,10 @@ public class ButtonFunctions : MonoBehaviour
     public void Game()
     {
         SceneManager.LoadScene("GameB");
+    }
+
+    public void MalWareBulletHell()
+    {
+        SceneManager.LoadScene("Mal-WareBulletHell");
     }
 }

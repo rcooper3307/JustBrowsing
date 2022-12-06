@@ -1314,7 +1314,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 384100059}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
-        m_MethodName: Email
+        m_MethodName: InstructEmail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2515,7 +2515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 219.84003, y: -23.869942}
+  m_AnchoredPosition: {x: 219.84003, y: -23.869934}
   m_SizeDelta: {x: 411.43, y: 47.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1935968172
