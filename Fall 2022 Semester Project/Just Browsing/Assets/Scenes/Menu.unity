@@ -3122,6 +3122,8 @@ MonoBehaviour:
   Email: 0
   Pass: 0
   firstRound: 0
+  firstViewingScene: 0
+  seenInfo: 00000000
 --- !u!4 &1891101333
 Transform:
   m_ObjectHideFlags: 0
