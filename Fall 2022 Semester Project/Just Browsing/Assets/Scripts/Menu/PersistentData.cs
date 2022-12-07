@@ -18,7 +18,8 @@ public class PersistentData : MonoBehaviour
     public static PersistentData Instance;
 
     public bool firstRound = false;
-
+    public bool firstViewingScene = false;
+    public bool[] seenInfo = { false, false, false, false };
     private void Awake()
     {
         if (Instance == null)
@@ -44,6 +45,7 @@ public class PersistentData : MonoBehaviour
         //{
         //    NS = GameObject.FindGameObjectWithTag("NeedsSystem").GetComponent<NeedsSystem>();
         //}
+        startofGame();
 
     }
 
@@ -54,7 +56,23 @@ public class PersistentData : MonoBehaviour
         playerName = "";
 
     }
+    public void startofGame()
+    {
+        if(!firstRound)
+        {
+            PlayerPrefs.SetFloat("VideoBar", 100);
+            PlayerPrefs.SetFloat("GameBar", 100);
+            PlayerPrefs.SetFloat("EmailBar", 100);
+            PlayerPrefs.SetFloat("PassBar", 10);
+            firstRound = true;
+        }
 
+    }
+
+    public bool hasSeenInfo(int i)
+    {
+        return seenInfo[i];
+    }
     public void SetName(string s)
     {
         playerName = s;
