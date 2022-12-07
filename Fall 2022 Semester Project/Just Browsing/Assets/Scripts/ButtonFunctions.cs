@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonFunctions : MonoBehaviour
 {
+
     public void PlayGame()
     {
         SceneManager.LoadScene("Desktop");

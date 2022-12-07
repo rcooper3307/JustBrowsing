@@ -44,11 +44,6 @@ public class NeedsSystem : MonoBehaviour
             if (PersistentData.Instance.firstRound == false)
             {
                 notice.SetActive(true);
-                PlayerPrefs.SetFloat("VideoBar", 100);
-                PlayerPrefs.SetFloat("GameBar", 100);
-                PlayerPrefs.SetFloat("EmailBar", 100);
-                PlayerPrefs.SetFloat("PassBar", 100);
-                PersistentData.Instance.firstRound = true;
                 StartCoroutine(waitNotice());
             }
         }
@@ -62,10 +57,14 @@ public class NeedsSystem : MonoBehaviour
 
     private void Update()
     {
-        PlayerPrefs.SetFloat("VideoBar", VideoBar.value);
-        PlayerPrefs.SetFloat("GameBar", GameBar.value);
-        PlayerPrefs.SetFloat("EmailBar", EmailBar.value);
-        PlayerPrefs.SetFloat("PassBar", PasswordBar.value);
+        if (PersistentData.Instance.firstRound == true)
+        {
+
+            PlayerPrefs.SetFloat("VideoBar", VideoBar.value);
+            PlayerPrefs.SetFloat("GameBar", GameBar.value);
+            PlayerPrefs.SetFloat("EmailBar", EmailBar.value);
+            PlayerPrefs.SetFloat("PassBar", PasswordBar.value);
+        }    
     }
 
     private void FixedUpdate()
@@ -143,15 +142,15 @@ public class NeedsSystem : MonoBehaviour
         }
         else if(i >= 30 && i < 65)//mid points
         {
-            reward = rewardPoints /  3;
+            reward = rewardPoints /  2;
         }
         else if(i >= 10 && i < 30)
         {
-            reward = rewardPoints / 4;
+            reward = rewardPoints / 3;
         }
         else
         {
-            reward = rewardPoints / 5;
+            reward = rewardPoints / 4;
         }
 
         s.value = s.maxValue;
