@@ -9,7 +9,7 @@ public class popupADS : MonoBehaviour
 {
     public void clickedAd()
     {
-        SceneManager.LoadScene("InstructMalware");
+        SceneManager.LoadScene("Mal-WareBulletHell");
     }
 
     public void deleteAd()
