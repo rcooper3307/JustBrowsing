@@ -655,7 +655,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1937660735}
-  - {fileID: 290741382}
   m_Father: {fileID: 384100058}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -947,7 +946,6 @@ RectTransform:
   - {fileID: 1732787618}
   - {fileID: 1099185382}
   - {fileID: 1788805306}
-  m_Father: {fileID: 290741382}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -1699,7 +1697,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1825806134}
-  m_Father: {fileID: 290741382}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -2260,7 +2257,6 @@ MonoBehaviour:
   PpointsDeduct: 80
   passwordReseter: {fileID: 5790898054632738251, guid: 34154304c0f1d0d4f95231a12c6ac92a, type: 3}
   passwordNotice: {fileID: 202175361}
-  popUpInstruct: {fileID: 290741381}
   noticePassword: 0
 --- !u!1 &1732787617
 GameObject:
@@ -2877,7 +2873,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 206627151}
   m_Father: {fileID: 1246763580}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
