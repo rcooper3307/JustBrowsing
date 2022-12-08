@@ -22,6 +22,7 @@ public class PasswordChanger : MonoBehaviour
     public int buttonactive;
     public int correctREQ = 0;
     private bool[] correctOnes = new bool[] { false, false, false, false };
+
     private void Awake()
     {
         ns = GameObject.Find("BarBase").GetComponent<NeedsSystem>();
@@ -94,7 +95,7 @@ public class PasswordChanger : MonoBehaviour
             specialchartxt.color = Color.red;
             correctOnes[3] = false;
         }
-            
+
 
     }
 
@@ -129,7 +130,7 @@ public class PasswordChanger : MonoBehaviour
         {
             if (s.Contains(System.Convert.ToString(i)))
                 return true;
-                
+
         }
         return false;
     }
