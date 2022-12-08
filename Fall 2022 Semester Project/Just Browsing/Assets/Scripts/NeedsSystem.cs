@@ -30,6 +30,8 @@ public class NeedsSystem : MonoBehaviour
     public GameObject passwordReseter;
     public GameObject passwordNotice;
 
+    [SerializeField] GameObject popUpInstruct;
+
     public bool noticePassword;
     private bool[] runningQ = { false, false, false, false };
     private void Awake()
@@ -64,7 +66,7 @@ public class NeedsSystem : MonoBehaviour
             PlayerPrefs.SetFloat("GameBar", GameBar.value);
             PlayerPrefs.SetFloat("EmailBar", EmailBar.value);
             PlayerPrefs.SetFloat("PassBar", PasswordBar.value);
-        }    
+        }
     }
 
     private void FixedUpdate()
@@ -78,7 +80,7 @@ public class NeedsSystem : MonoBehaviour
         {
             noticePass(true);
         }
-        
+
         if(PasswordBar.value != 0)
             noticePass(false);
     }
@@ -106,7 +108,7 @@ public class NeedsSystem : MonoBehaviour
                     runningQ[boolPOS] = true;
                     StartCoroutine(waitpoints(boolPOS));
                 }
-            }    
+            }
         }
         else
         {
@@ -129,7 +131,7 @@ public class NeedsSystem : MonoBehaviour
             passwordNotice.SetActive(false);
             noticePassword = false;
         }
-        
+
     }
 
     public void RefreshNeedsBar(Slider s)
@@ -190,6 +192,7 @@ public class NeedsSystem : MonoBehaviour
         GameObject go = Instantiate(passwordReseter, passwordNotice.transform.position, Quaternion.identity);
         go.transform.SetParent(passwordNotice.transform);
         go.transform.localScale = new Vector3(1, 1, 1);
+
     }
 
     //IEnumerator deductPoints(int value, int deduct, int boolPOS)

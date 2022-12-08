@@ -6,6 +6,21 @@ using UnityEngine.UI;
 
 public class ButtonFunctions : MonoBehaviour
 {
+    [SerializeField] GameObject[] instructionPopUp;
+    [SerializeField] bool clicked = false;
+
+    void Start()
+    {
+        instructionPopUp = GameObject.FindGameObjectsWithTag("Instructions");
+
+        Debug.Log("Startedd" + SceneManager.GetActiveScene().name);
+        Instructions();
+
+        // if(SceneManager.GetActiveScene().name == "Desktop"){
+        //   foreach (GameObject g in instructionPopUp)
+        //       g.SetActive(false);
+        // }
+    }
 
     public void PlayGame()
     {
@@ -17,9 +32,27 @@ public class ButtonFunctions : MonoBehaviour
         SceneManager.LoadScene("Options");
     }
 
-    public void Instructions()
-    {
-        SceneManager.LoadScene("Instructions");
+    // Makes instruction panel pop up
+    public void Instructions(){
+
+      Debug.Log("Into Intructions" + SceneManager.GetActiveScene().name);
+      if(clicked){
+        Time.timeScale = 0.0f;
+        foreach(GameObject g in instructionPopUp)
+            g.SetActive(true);
+      }
+      else{
+        Time.timeScale = 1.0f;
+        foreach (GameObject g in instructionPopUp)
+            g.SetActive(false);
+      }
+
+      if(clicked == false){
+        clicked = true;
+      }
+      else{
+        clicked = false;
+      }
     }
 
     public void InstructEmail()

@@ -10,6 +10,7 @@ TagManager:
   - Taskbar
   - Time
   - NeedsSystem
+  - Instructions
   layers:
   - Default
   - TransparentFX

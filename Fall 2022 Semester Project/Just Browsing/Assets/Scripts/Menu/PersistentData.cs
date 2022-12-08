@@ -17,6 +17,7 @@ public class PersistentData : MonoBehaviour
     public bool Pass = false;
     public static PersistentData Instance;
 
+
     public bool firstRound = false;
     public bool firstViewingScene = false;
     public bool[] seenInfo = { false, false, false, false };
