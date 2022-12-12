@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class BHellManager : MonoBehaviour
 {
-    public int health = 2;
+    public int health = 3;
     private GameObject player;
     public bool started;
     public bool complete = false;

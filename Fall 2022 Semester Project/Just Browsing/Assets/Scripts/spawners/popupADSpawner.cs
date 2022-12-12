@@ -23,4 +23,15 @@ public class popupADSpawner : MonoBehaviour
         }
     }
 
+    public bool checkAdsAlive()
+    {
+        bool b = false;
+        foreach(Transform child in gameObject.transform)
+        {
+            b = true;
+        }
+
+        return b;
+    }
+
 }
