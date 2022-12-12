@@ -22,7 +22,7 @@ public class VideoViewing : MonoBehaviour
 
     public void viewing()
     {
-        switch(count)
+        switch (count)
         {
             case 0:
                 int i = Random.Range(8, 12);
@@ -38,7 +38,7 @@ public class VideoViewing : MonoBehaviour
 
     IEnumerator end()
     {
-        if(tab == 0)
+        if (tab == 0)
         {
             button.SetActive(false);
             vid.sprite = vidChange;
@@ -47,7 +47,7 @@ public class VideoViewing : MonoBehaviour
             SceneManager.LoadScene("Desktop");
         }
 
-        if(tab == 1)
+        if (tab == 1)
         {
             button.SetActive(false);
             vid.sprite = vidChange;
