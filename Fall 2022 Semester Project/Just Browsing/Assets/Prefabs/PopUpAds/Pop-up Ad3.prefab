@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 344506703686289663}
   - component: {fileID: 344506703686289656}
+  - component: {fileID: 5024716551981044604}
   m_Layer: 5
   m_Name: Pop-up Ad3
   m_TagString: Untagged
@@ -51,6 +52,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b9bc58dcbf105458e6833f2f54c83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5024716551981044604
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344506703686289662}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68847112d29428c49adb9f18600e35fe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &344506703975825754
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.27450982}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
