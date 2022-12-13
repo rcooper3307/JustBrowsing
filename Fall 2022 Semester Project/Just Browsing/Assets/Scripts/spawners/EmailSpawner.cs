@@ -16,7 +16,8 @@ public class EmailSpawner : MonoBehaviour
     [Space(20)]
     [Header("Spam Emails")]
     public List<EmailBase> SPAM_emails = new List<EmailBase>(); //spam email bases to be deleted
-
+    [Space(40)]
+    public int spamInCurrentEmails;
     private void Awake()
     {
         emailAmount = GameObject.Find("EmailAmountText").GetComponent<TextMeshProUGUI>();
@@ -25,13 +26,15 @@ public class EmailSpawner : MonoBehaviour
         spawnEmailMix(j);
     }
 
-    private void FixedUpdate()
-    {
-        ScanEmails();
-    }
-
     private void Update()
     {
+        ScanEmails();
+        emailAmount.text = "Number of Emails: " + gridTransform.childCount;
+        if (spamInCurrentEmails == 0)
+        {
+            PersistentData.Instance.Email = true;
+            SceneManager.LoadScene("Desktop");
+        }
     }
 
     public EmailBase randomEmail()
@@ -80,37 +83,16 @@ public class EmailSpawner : MonoBehaviour
 
     public void ScanEmails()
     {
-        emailAmount.text = "Number of Emails: " + gridTransform.childCount;
-        bool clean = false;
+        int i = 0;
         foreach(Transform child in gridTransform)
         {
-            bool b = child.GetComponent<EmailPrefab>().isSpam;
-            if(b)
+            if(child.GetComponent<EmailPrefab>().isSpam)
             {
-                clean = false;
-            }
-            else
-            {
-                clean = true;
+                i++;
             }
         }
 
-        if(clean == true || gridTransform.childCount == 0)
-        {
-            //award points
-            //reset bar to full
-            //delete all emails before player leaves scene
-            PersistentData.Instance.Email = true;
-            foreach (Transform child in gridTransform)
-            {
-                Destroy(child.gameObject);
-            }
-
-
-            SceneManager.LoadScene("Desktop");
-
-
-        }
+        spamInCurrentEmails = i;
     }
 
 }
