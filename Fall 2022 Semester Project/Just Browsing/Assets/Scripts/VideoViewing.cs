@@ -12,49 +12,71 @@ public class VideoViewing : MonoBehaviour
     public Sprite vidChange;
     public Image vid;
 
-    public int tab;
-
+    public int adAmount;
+    public bool adSpotFree = true;
+    public bool started = false;
     private void Awake()
     {
         count = 0;
         button.SetActive(true);
+        started = false;
+        adSpotFree = true;
     }
 
-    public void viewing()
+    private void Update()
     {
+        consecutivePopups();
+    }
+
+    public void buttonPressed()
+    {
+        
         switch (count)
         {
             case 0:
-                int i = Random.Range(8, 12);
-                pop.amount = i;
-                pop.spawnAds();
+                adAmount = Random.Range(3, 4);
+                started = true;
+                button.GetComponent<Button>().interactable = false;
                 count++;
                 break;
             case 1:
                 StartCoroutine(end());
                 break;
         }
+
+    }
+
+    public void consecutivePopups()
+    {
+        if (pop.transform.childCount == 0 && !adSpotFree)
+        {
+            adAmount -= 1;
+            adSpotFree = true;
+        }
+
+        if (started)
+        {
+            if (adAmount > 0 && adSpotFree)
+            {
+                
+                pop.spawnSingleAd(Random.Range(2, 3));
+                adSpotFree = false;
+            }
+
+            if(pop.transform.childCount == 0 && adAmount == 0)
+            {
+                button.GetComponent<Button>().interactable = true;
+            }
+        }
     }
 
     IEnumerator end()
     {
-        if (tab == 0)
-        {
-            button.SetActive(false);
-            vid.sprite = vidChange;
-            PersistentData.Instance.Video = true;
-            yield return new WaitForSecondsRealtime(2);
-            SceneManager.LoadScene("Desktop");
-        }
-
-        if (tab == 1)
-        {
-            button.SetActive(false);
-            vid.sprite = vidChange;
-            PersistentData.Instance.Game = true;
-            yield return new WaitForSecondsRealtime(2);
-            SceneManager.LoadScene("Desktop");
-        }
+        button.SetActive(false);
+        vid.sprite = vidChange;
+        PersistentData.Instance.Game = true;
+        yield return new WaitForSecondsRealtime(2);
+        SceneManager.LoadScene("Desktop");
     }
 
     public void gotcha()

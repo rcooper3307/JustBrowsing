@@ -54,7 +54,7 @@ public class VideoButtonMash : MonoBehaviour
                 StartCoroutine(end());
             }
 
-            percent.text = Mathf.Abs(m_Slider.value) + "%";
+            percent.text = Mathf.Round(m_Slider.value) + "%";
 
         }
 

@@ -277,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6968864606787619263}
   - component: {fileID: 6968864606787619262}
+  - component: {fileID: 4746142926645994287}
   m_Layer: 5
   m_Name: FakeDownload1
   m_TagString: Untagged
@@ -318,6 +319,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b9bc58dcbf105458e6833f2f54c83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+--- !u!95 &4746142926645994287
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6968864606787619260}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68847112d29428c49adb9f18600e35fe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6968864606844172297
 GameObject:
   m_ObjectHideFlags: 0
