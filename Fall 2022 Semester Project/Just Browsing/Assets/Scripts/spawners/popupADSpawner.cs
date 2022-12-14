@@ -12,8 +12,8 @@ public class popupADSpawner : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            int posX = Random.Range(-5, 5);
-            int posY = Random.Range(-4, 3);
+            int posX = Random.Range(-3, 3);
+            int posY = Random.Range(-2, 2);
             int posz = 10;
             Vector3 pos = new Vector3(posX, posY, posz);
             GameObject go = Instantiate(ads[Random.Range(0, ads.Length)], pos, Quaternion.identity);
@@ -26,8 +26,8 @@ public class popupADSpawner : MonoBehaviour
     {
         for (int i = 0; i < j; i++)
         {
-            int posX = Random.Range(-5, 5);
-            int posY = Random.Range(-4, 2);
+            int posX = Random.Range(-3, 3);
+            int posY = Random.Range(-2, 2);
             int posz = 10;
             Vector3 pos = new Vector3(posX, posY, posz);
             GameObject go = Instantiate(ads[Random.Range(0, ads.Length)], pos, Quaternion.identity);

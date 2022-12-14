@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Rendering;
 
 public class Performance : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Performance : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] scoreTexts;
     [SerializeField] TextMeshProUGUI[] gradeTexts;
 
-    void Start()
+    private void Awake()
     {
         //gets the name and score for this current session
         playerName = PersistentData.Instance.GetName();
@@ -31,15 +32,16 @@ public class Performance : MonoBehaviour
         //1 Score1 
         //2 Player2
         //2 Score2 ...etc
-        for (int i = 1; i <= NUM_HIGH_SCORES; i++)
-        {
-            Debug.Log(i + " " + PlayerPrefs.GetString(NAME_KEY + i) + " ");
-            Debug.Log(i + " " + PlayerPrefs.GetInt(SCORE_KEY + i) + " ");
-            Debug.Log(i + " " + PlayerPrefs.GetString(GRADE_KEY + i) + " ");
-        }
+        //for (int i = 1; i <= NUM_HIGH_SCORES; i++)
+        //{
+        //    Debug.Log(i + " " + PlayerPrefs.GetString(NAME_KEY + i) + " ");
+        //    Debug.Log(i + " " + PlayerPrefs.GetInt(SCORE_KEY + i) + " ");
+        //    Debug.Log(i + " " + PlayerPrefs.GetString(GRADE_KEY + i) + " ");
+        //}
 
         ShowHighScores();
     }
+
 
     public void SaveHighScores()
     {
@@ -47,12 +49,12 @@ public class Performance : MonoBehaviour
         //1 Score1 
         //2 Player2
         //2 Score2 ...etc
-        for (int i = 1; i <= NUM_HIGH_SCORES; i++)
-        {
-            Debug.Log(i + " " + PlayerPrefs.GetString(NAME_KEY + i) + " ");
-            Debug.Log(i + " " + PlayerPrefs.GetInt(SCORE_KEY + i) + " ");
-            Debug.Log(i + " " + PlayerPrefs.GetString(GRADE_KEY + i) + " ");
-        }
+        //for (int i = 1; i <= NUM_HIGH_SCORES; i++)
+        //{
+        //    Debug.Log(i + " " + PlayerPrefs.GetString(NAME_KEY + i) + " ");
+        //    Debug.Log(i + " " + PlayerPrefs.GetInt(SCORE_KEY + i) + " ");
+        //    Debug.Log(i + " " + PlayerPrefs.GetString(GRADE_KEY + i) + " ");
+        //}
         //while i is less than 5, i goes up
         for (int i = 1; i <= NUM_HIGH_SCORES; i++)
         {
@@ -64,7 +66,7 @@ public class Performance : MonoBehaviour
             if (PlayerPrefs.HasKey(currentScoreKey)) //if the key scorei exists in player prefs
             {
                 int currentScore = PlayerPrefs.GetInt(currentScoreKey); //retrieve the score currently stored in scorei
-                if (playerScore > currentScore) //if the playerScore is higher than the one stored in scorei
+                if (playerScore > currentScore && checkstatus(playerName, playerScore) == false) //if the playerScore is higher than the one stored in scorei
                 {
                     int tempScore = currentScore; //store the scorei in a temp variable
                     string tempName = PlayerPrefs.GetString(currentNameKey); //store the playeri string in a temporary variable
@@ -77,10 +79,11 @@ public class Performance : MonoBehaviour
                     playerName = tempName; //the old variable for playerName is set to the old namei player's name
                     playerScore = tempScore; //the old variable for playerScore is set to the old scorei player's score
                     playerGrade = tempGrade; //the old variable for playerGrade is set to the old gradei player's grade
-                    //this is so that in the next iteration of the loop it uses the old name and scores as parameters
+                                             //this is so that in the next iteration of the loop it uses the old name and scores as parameters
+                    Debug.Log("temp name" + tempName);
                 }
             }
-            else //if playeri does not exist in player prefs
+            else
             {
                 PlayerPrefs.SetString(currentNameKey, playerName); //set a key in playerprefs for playeri with the value of the current playerName
                 PlayerPrefs.SetInt(currentScoreKey, playerScore); //set a key in playerprefs for scorei with the value of playerScore
@@ -88,6 +91,25 @@ public class Performance : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public bool checkstatus(string name, int score)
+    {
+        bool b = false;
+        for (int i = 1; i <= NUM_HIGH_SCORES; i++)
+        {
+            string currentNameKey = NAME_KEY + i; //Playeri
+            string currentScoreKey = SCORE_KEY + i; //Scorei
+
+            int currentScore = PlayerPrefs.GetInt(currentScoreKey);
+            string s = PlayerPrefs.GetString(currentNameKey);
+            if (score == currentScore && score != 0 && name == s)
+            {
+                b = true;
+            }
+        }
+
+        return b;
     }
 
     public void ShowHighScores()
@@ -101,7 +123,7 @@ public class Performance : MonoBehaviour
             gradeTexts[i].text = PlayerPrefs.GetString(GRADE_KEY + (i + 1));
         }
     }
-  
+
 
     public string gradeMe(int i)
     {

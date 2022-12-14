@@ -79,7 +79,7 @@ public class VideoButtonMash : MonoBehaviour
         {
             if (!spawnem)
             {
-                ads.spawnAds();
+                ads.spawnSingleAd(2);
                 spawnem = true;
             }
             b[0] = false;
@@ -91,7 +91,7 @@ public class VideoButtonMash : MonoBehaviour
         {
             if (!spawnem)
             {
-                ads.spawnAds();
+                ads.spawnSingleAd(4);
                 spawnem = true;
             }
             b[1] = false;

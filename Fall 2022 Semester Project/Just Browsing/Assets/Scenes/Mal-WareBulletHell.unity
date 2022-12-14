@@ -751,7 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b75a2cf13b92a34daf5a4f9eeb6eb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 0.65
+  spawnRate: 0.75
   enemies:
   - {fileID: 5233242373891149226, guid: 608c1c9b2936fd84fb4187c96b5e89eb, type: 3}
   - {fileID: 4623189801054815855, guid: 343fafe76841f424284ebf52ee99b123, type: 3}
@@ -1560,7 +1560,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cef9e42bafe294642bfe001a97069ae6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7320,7 +7320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1655220264}
   goal: 100
-  fillSpeed: 1.6
+  fillSpeed: 2.4
   percent: {fileID: 1691634052}
   hasFailed: 0
 --- !u!1 &1691634050
@@ -7488,7 +7488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db3f088009f91b439c37bd0d8b18e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 4
   started: 0
   complete: 0
   audioex: {fileID: 8300000, guid: 8ad42139d6659a1448db8d75854940fa, type: 3}

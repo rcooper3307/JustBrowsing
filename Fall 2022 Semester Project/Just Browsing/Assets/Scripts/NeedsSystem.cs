@@ -34,6 +34,7 @@ public class NeedsSystem : MonoBehaviour
 
     public bool noticePassword;
     private bool[] runningQ = { false, false, false, false };
+
     private void Awake()
     {
 
@@ -100,13 +101,13 @@ public class NeedsSystem : MonoBehaviour
             {
                 if (!runningQ[boolPOS])
                 {
-                    //int i = PersistentData.Instance.GetScore();
-                    //i -= deduct;
+
+
                     PersistentData.Instance.updateScore(-deduct);
 
+                    StartCoroutine(waitpoints(boolPOS));
 
                     runningQ[boolPOS] = true;
-                    StartCoroutine(waitpoints(boolPOS));
                 }
             }
         }
@@ -158,10 +159,6 @@ public class NeedsSystem : MonoBehaviour
         s.value = s.maxValue;
         Debug.Log(reward);
 
-        //int j = PersistentData.Instance.GetScore();
-        //j += reward;
-
-
         PersistentData.Instance.updateScore(reward);
     }
 
@@ -194,19 +191,6 @@ public class NeedsSystem : MonoBehaviour
         go.transform.localScale = new Vector3(1, 1, 1);
 
     }
-
-    //IEnumerator deductPoints(int value, int deduct, int boolPOS)
-    //{
-    //    while (true)
-    //    {
-    //        yield return new WaitForSecondsRealtime(3);
-    //        scoreKeeper.score -= deduct;
-    //        int i = PersistentData.Instance.GetScore();
-    //        i -= deduct;
-    //        yield break;
-    //        PersistentData.Instance.SetScore(i);
-    //    }
-    //}
 
     IEnumerator waitpoints(int boolPOS)
     {
