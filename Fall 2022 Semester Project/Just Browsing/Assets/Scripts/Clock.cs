@@ -42,7 +42,7 @@ public class Clock : MonoBehaviour
 
     public void endGame()
     {
-        
+        timer = 21600.0f;
         SceneManager.LoadScene("HighScores");
     }
 }
