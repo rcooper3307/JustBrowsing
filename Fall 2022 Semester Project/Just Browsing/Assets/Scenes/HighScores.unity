@@ -3177,7 +3177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructionPopUp: []
-  clicked: 1
+  clicked: 0
 --- !u!1 &1691251852
 GameObject:
   m_ObjectHideFlags: 0

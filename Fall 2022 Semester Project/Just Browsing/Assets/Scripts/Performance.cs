@@ -20,7 +20,7 @@ public class Performance : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] scoreTexts;
     [SerializeField] TextMeshProUGUI[] gradeTexts;
 
-    private void Start()
+    private void Awake()
     {
         //gets the name and score for this current session
         playerName = PersistentData.Instance.GetName();

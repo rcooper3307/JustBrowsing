@@ -5859,7 +5859,7 @@ MonoBehaviour:
   EmailSpeed: 3.5
   EmailBar: {fileID: 7668622304342898252}
   EpointsDeduct: 25
-  PasswordSpeed: 1.6
+  PasswordSpeed: 2.2
   PasswordBar: {fileID: 1935968172}
   PpointsDeduct: 80
   passwordReseter: {fileID: 5790898054632738251, guid: 34154304c0f1d0d4f95231a12c6ac92a, type: 3}
