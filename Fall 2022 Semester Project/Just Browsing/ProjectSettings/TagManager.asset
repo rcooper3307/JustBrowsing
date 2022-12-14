@@ -11,6 +11,7 @@ TagManager:
   - Time
   - NeedsSystem
   - Instructions
+  - Browser
   layers:
   - Default
   - TransparentFX

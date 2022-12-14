@@ -13,7 +13,7 @@ public class ButtonFunctions : MonoBehaviour
     {
         instructionPopUp = GameObject.FindGameObjectsWithTag("Instructions");
 
-        Debug.Log("Startedd" + SceneManager.GetActiveScene().name);
+        //Debug.Log("Startedd" + SceneManager.GetActiveScene().name);
         Instructions();
 
         // if(SceneManager.GetActiveScene().name == "Desktop"){
@@ -35,7 +35,7 @@ public class ButtonFunctions : MonoBehaviour
     // Makes instruction panel pop up
     public void Instructions(){
 
-      Debug.Log("Into Intructions" + SceneManager.GetActiveScene().name);
+      //Debug.Log("Into Intructions" + SceneManager.GetActiveScene().name);
       if(clicked){
         Time.timeScale = 0.0f;
         foreach(GameObject g in instructionPopUp)
@@ -62,7 +62,9 @@ public class ButtonFunctions : MonoBehaviour
 
     public void MainMenu()
     {
+        PersistentData.Instance.cleanseData();
         SceneManager.LoadScene("Menu");
+
     }
 
     public void Email()
@@ -83,5 +85,10 @@ public class ButtonFunctions : MonoBehaviour
     public void MalWareBulletHell()
     {
         SceneManager.LoadScene("Mal-WareBulletHell");
+    }
+
+    public void returnToPrev()
+    {
+        PersistentData.Instance.returnPrevScene();
     }
 }

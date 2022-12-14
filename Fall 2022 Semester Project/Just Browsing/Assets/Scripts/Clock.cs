@@ -11,7 +11,8 @@ public class Clock : MonoBehaviour
 {
     public TextMeshProUGUI clock;
     //sets the hour to 6pm
-    private float timer = 21600.0f;
+    public float timer;
+
 
     void DisplayTime()
     {
@@ -23,6 +24,11 @@ public class Clock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!PersistentData.Instance.firstRound)
+        {
+            timer = 21600.0f;
+        }
+
         //changes the speed of the timer
         timer += Time.deltaTime * 35;
         DisplayTime();
@@ -36,6 +42,7 @@ public class Clock : MonoBehaviour
 
     public void endGame()
     {
+        
         SceneManager.LoadScene("HighScores");
     }
 }

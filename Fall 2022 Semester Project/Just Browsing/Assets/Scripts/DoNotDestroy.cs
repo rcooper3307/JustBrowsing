@@ -24,6 +24,7 @@ public class DoNotDestroy : MonoBehaviour
     }
     void Update()
     {
+
         string SceneName = SceneManager.GetActiveScene().name;
         //when on the computer scenes, the taskbar is visible and interactable
         if ((SceneName == "Desktop") || (SceneName == "Email" || SceneName == "GameB") || (SceneName == "Browser"))

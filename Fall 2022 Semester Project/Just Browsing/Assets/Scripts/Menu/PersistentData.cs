@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PersistentData : MonoBehaviour
 {
@@ -19,8 +20,13 @@ public class PersistentData : MonoBehaviour
 
 
     public bool firstRound = false;
+    public bool highscoreReset = false;
     public bool firstViewingScene = false;
     public bool[] seenInfo = { false, false, false, false };
+
+    [Space(30)]
+
+    public string previousScene, currentScene, tempScene;
     private void Awake()
     {
         if (Instance == null)
@@ -32,6 +38,8 @@ public class PersistentData : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        sceneManaging();
+        startofGame();
 
     }
 
@@ -40,14 +48,15 @@ public class PersistentData : MonoBehaviour
         if(NS != null)
         {
             refreshSlider();
-
+            startofGame();
         }
-        //else
-        //{
-        //    NS = GameObject.FindGameObjectWithTag("NeedsSystem").GetComponent<NeedsSystem>();
-        //}
-        startofGame();
+        
+        sceneManaging();
 
+        if(playerScore < 0)
+        {
+            playerScore = 0;
+        }
     }
 
     // Start is called before the first frame update
@@ -64,8 +73,10 @@ public class PersistentData : MonoBehaviour
             PlayerPrefs.SetFloat("VideoBar", 100);
             PlayerPrefs.SetFloat("GameBar", 100);
             PlayerPrefs.SetFloat("EmailBar", 100);
-            PlayerPrefs.SetFloat("PassBar", 10);
-            firstRound = true;
+            PlayerPrefs.SetFloat("PassBar", 60);
+            Time.timeScale = 0f;
+            
+            //firstRound = true;
         }
 
     }
@@ -126,5 +137,36 @@ public class PersistentData : MonoBehaviour
         }
     }
 
+    public void sceneManaging()
+    {
+        tempScene = SceneManager.GetActiveScene().name;
+        if (previousScene == "")
+        {
+            previousScene = SceneManager.GetActiveScene().name;
+        }
+
+        if(currentScene == "")
+        {
+            currentScene = tempScene;
+        }
+
+        if(previousScene == currentScene && currentScene != tempScene || previousScene != currentScene && currentScene != tempScene)
+        {
+            previousScene = currentScene;
+            currentScene = tempScene;
+        }
+    }
+
+    public void returnPrevScene()
+    {
+        SceneManager.LoadScene(previousScene);
+    }
+
+    public void cleanseData()
+    {
+        playerName = "";
+        playerScore = 0;
+        firstRound = false;
+    }
 }
 
